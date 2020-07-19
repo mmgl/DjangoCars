@@ -1,1 +1,1 @@
-"# Django Ara‡ Alm Satm Sitesi" 
+Django AraÃ§ AlÄ±m SatÄ±m Sitesi 
