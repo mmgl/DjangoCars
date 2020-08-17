@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Django Projem</title>
-</head>
-<body>
-<h1>İlk Olacak</h1>
-<br>
-<h2>Karabük Üniversitesi Bilgisayar Müh.</h2>
+{% extends "homebase.html" %}
 
-<p>
-    {{text}}
-</p>
-</body>
-</html>
+{% block title %}{{ setting.title }}{% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+{% block slider %}
+    {% include 'slider.html' %}
+{% endblock %}
+{% block content %}
+    {% include 'content.html' %}
+{% endblock %}
