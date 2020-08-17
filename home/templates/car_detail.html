@@ -1,0 +1,169 @@
+{% extends 'homebase.html' %}
+{% block title %} {{car.title}} {{ setting.company }} {% endblock %}
+{% block keywords %} {{ car.keywords }} {% endblock %}
+{% block description %} {{ car.description }} {% endblock %}
+{% block head %}
+<link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="responsive-menu">
+    <a href="" class="responsive-menu-close"><i class="ion-android-close"></i></a>
+    <nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
+</div> <!-- end .responsive-menu -->
+<div class="page-title" style="background-image: url({% static 'images/background01.jpg' %} );">
+    <div class="inner">
+        <div class="container">
+            <div class="title">Araba Detay</div> <!-- end .title -->
+        </div> <!-- end .container -->
+    </div> <!-- end .inner -->
+</div> <!-- end .page-title -->
+
+<section class="section white">
+    <div class="inner">
+        <div class="container">
+            <div class="car-details">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="clearfix">
+                            <div class="title">{{car.title}}</div>
+                        </div>
+                        <div id="car-details-slider" class="image">
+                            <div class="item"><img src="{{car.image.url}}" alt="alt" class="img-responsive"></div>
+                            {% for rs in images %}
+                            <div class="item"><img src="{{rs.image.url}}" alt="alt" class="img-responsive"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="tabpanel border" role="tabpanel">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#heading-tab5" aria-controls="heading-tab5" role="tab" data-toggle="tab">Araç Detayı</a></li>
+                                <li role="presentation"><a href="#heading-tab6" aria-controls="heading-tab6" role="tab" data-toggle="tab">Araç Yorumları</a></li>
+                            </ul> <!-- end .nav-tabs -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade" id="heading-tab5">
+                                    <p>{{car.detail | safe }}</p>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="heading-tab6">
+                                    <p>
+                                        <div class="comments">
+										<h4>Yorumlar</h4>
+                                         {% for rs in comments %}
+										<div class="comment clearfix">
+                                            {% load static %}
+
+											<div class="content">
+												<p><a href="">{{rs.user.first_name}} {{rs.user.last_name}}</a><br><br><b>{{rs.subject}}</b><p>{{rs.comment}}</p></p>
+											</div> <!-- end .content -->
+										</div> <!-- end .comment -->
+                                        {% endfor %}
+									</div> <!-- end .comments -->
+                                    </p>
+                                </div> <!-- end .tab-panel -->
+                            </div> <!-- end .tab-content -->
+                        </div> <!-- end .tabpanel -->
+                    </div> <!-- end .col-sm-8 -->
+                    <div class="col-sm-4">
+                        <div class="price">{{car.price}}₺</div>
+                        <div class="main-car-details">
+                            <div class="item clearfix">
+                                <div class="option">Yıl</div>
+                                <div class="option-content">{{car.year}}</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Kategori</div>
+                                <div class="option-content">{{car.category}}</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Model</div>
+                                <div class="option-content">{{car.title}}</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Kasa Tipi</div>
+                                <div class="option-content">Spor Araba</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Kilometre</div>
+                                <div class="option-content">{{car.km}}</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Yakıt</div>
+                                <div class="option-content">{{car.fuel}}</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Vites</div>
+                                <div class="option-content">{{car.gear}}</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Motor Gücü</div>
+                                <div class="option-content">{{car.motorpower}} bg</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Konum</div>
+                                <div class="option-content">İstanbul</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Fiyat</div>
+                                <div class="option-content">{{car.price}}₺</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Renk</div>
+                                <div class="option-content">{{car.color}}</div>
+                            </div> <!-- end .item -->
+                        </div> <!-- end .main-car-details -->
+                    </div> <!-- end .col-sm-4 -->
+                    <div class="col-sm-4">
+                        <div class="leave-reply">
+                            <h4>Yorum yazın</h4>
+                            <div>
+                                {% if messages %}
+                                {% for message in messages %}
+                                <div class="alert alert-{{message.tags}}" role="alert">
+                                    {{ message }}
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                        <form action="/car/addcomment/{{car.id}}" method="post">
+                                {% csrf_token %}
+                                <div>
+                                    <div>
+                                        <div class="form-group">
+                                            <input name="subject" type="text" id="comment-name" required placeholder="Konu*" />
+                                        </div> <!-- end .form-group -->
+                                        <div class="form-group">
+                                            <textarea name="comment" id="comment-message" required placeholder="Mesaj*" rows="7"></textarea>
+                                        </div> <!-- end .form-group -->
+                                        {% if user.id is not None %}
+                                        <input type="submit" value="Yorum Yap" class="button solid light-blue" />
+                                        {% else %}
+                                        Yorum eklemek için <a href="/login">giriş</a> yapınız.
+                                        {% endif %}
+                                    </div> <!-- end .col-sm-6 -->
+                                </div> <!-- end .row -->
+                            </form>
+                        </div>
+                    </div> <!-- end .leave-reply -->
+                </div> <!-- end .row -->
+            </div> <!-- end .car-details -->
+
+            <div class="listings related-vehicles">
+                <div class="heading clearfix"><h5>SİZİN İÇİN SEÇİLENLER</h5></div>
+                <div class="listings-grid clearfix">
+                    {% for rs in randomcars %}
+                    <div class="listing">
+                        <div class="image"><a href="/car/{{rs.id}}/{{rs.slug}}"><img src="{{rs.image.url}}" alt="listing" class="img-responsive"></a></div>
+                        <div class="content">
+                            <div class="title"><a href="/car/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a></div>
+                            <p></p>
+                            <div class="price">{{rs.price}}₺</div>
+                        </div>
+                    </div> <!-- end .listing -->
+                    {% endfor %}
+                </div> <!-- end .listing-grid -->
+            </div> <!-- end .listings -->
+        </div> <!-- end .container -->
+    </div> <!-- end .inner -->
+</section> <!-- end .section -->
+{% endblock %}

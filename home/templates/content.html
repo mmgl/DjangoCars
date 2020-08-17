@@ -1,0 +1,122 @@
+<div class="responsive-menu">
+			<a href="" class="responsive-menu-close"><i class="ion-android-close"></i></a>
+			<nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
+		</div> <!-- end .responsive-menu -->
+        <script>
+
+          $(function() {
+            $("#query").autocomplete({
+              source: "/search_auto/",
+              select: function (event, ui) { //item selected
+                AutoCompleteSelectHandler(event, ui)
+              },
+              minLength: 2,
+            });
+          });
+
+          function AutoCompleteSelectHandler(event, ui)
+          {
+            var selectedObj = ui.item;
+          }
+
+        </script>
+        {% load static %}
+		<section class="section dark tiny">
+			<div class="inner">
+				<div class="container">
+					<div class="tabpanel border section-tab" role="tabpanel" >
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#search-cars" aria-controls="search-cars" role="tab" data-toggle="tab">Araç Arama</a></li>
+						</ul> <!-- end .nav-tabs -->
+                        <form class="search-form" action="/search/" method="post">
+                            {% csrf_token %}
+                            <input id="query" name="query" type="search" placeholder="arama" />
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+					</div> <!-- end .tabpanel -->
+				</div> <!-- end .container -->
+			</div> <!-- end .inner -->
+		</section> <!-- end .section -->
+
+		<section class="section white no-padding-bottom text-center">
+			<div class="inner">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2">
+							<h1 class="main-heading">Sitemize Hoşgeldiniz</h1>
+							<p>İkinci el otomobil, ticari araç, arazi aracı ve çok daha fazlasını binlerce ilan arasından kıyasla ve hayalindeki araca hemen sahip ol.</p>
+							<img src="{% static 'images/car1.png'%}" alt="car" class="img-responsive center-block featured-image">
+						</div> <!-- end .col-sm-8 -->
+					</div> <!-- end .row -->
+				</div> <!-- end .container -->
+			</div> <!-- end .inner -->
+		</section> <!-- end .section -->
+
+		<section class="section light">
+			<div class="inner">
+				<div class="container">
+					<h1 class="main-heading">Nasıl bir şey Arıyorsunuz?<small>En İyi Araç Sitesi</small></h1>
+					<div class="services clearfix">
+						<div class="service yellow">
+							<div class="icon">
+								<i class="icon-minicar"></i>
+								<div class="sub-icon">$</div> <!-- end .sub-icon -->
+							</div> <!-- end .icon -->
+							<div class="line"></div> <!-- end .line -->
+							<h5>Araç Sat</h5>
+							<p>Araçınızı Yüksek Karla Satın</p>
+						</div> <!-- end .service -->
+						<div class="service orange">
+							<div class="icon">
+								<i class="icon-sports-car"></i>
+								<div class="sub-icon"><i class="ion-key"></i></div> <!-- end .sub-icon -->
+							</div> <!-- end .icon -->
+							<div class="line"></div> <!-- end .line -->
+							<h5>Araç Satın Al</h5>
+							<p>Hayalini kurduğun sıfır yada 2.el Araçlar</p>
+						</div> <!-- end .service -->
+						<div class="service green">
+							<div class="icon">
+								<i class="icon-monster-truck"></i>
+								<div class="sub-icon">R</div> <!-- end .sub-icon -->
+							</div> <!-- end .icon -->
+							<div class="line"></div> <!-- end .line -->
+							<h5>Yeni Araçlar</h5>
+							<p>Gelecek Araçlardan haberdar olun</p>
+						</div> <!-- end .service -->
+					</div> <!-- end .services -->
+				</div> <!-- end .container -->
+			</div> <!-- end .inner -->
+		</section> <!-- end .section -->
+
+		<section class="section white">
+			<div class="inner">
+				<h1 class="main-heading">Satışa Hazır Sıfır Araçlar<small>En İyi Araç Sitesi</small></h1>
+				<div id="featured-cars" class="owl-carousel featured-cars">
+					{% for rs in daycars %}
+            <div class="item">
+                <div class="featured-car">
+                    <div class="image">
+                        <a href="/car/{{rs.id}}/{{rs.slug}}"><img src="{{rs.image.url}}" style="height: 110px" alt="car" class="img-responsive" height="20"></a>
+                        <span class="sale-tag"></span>
+                    </div> <!-- end .image -->
+                    <div class="content">
+                        <div class="clearfix">
+                            <h5><a href="/car/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a></h5>
+                            <span class="price">{{rs.price}}₺</span>
+                        </div> <!-- end .clearfix -->
+                        <div class="line"></div>
+                        <p>{{rs.year}} Model {{rs.gear}}</p>
+                    </div> <!-- end .content -->
+                    <div class="details clearfix">
+                        <div class="seats"><i class="icon-car-seat"></i>4</div>
+                        <div class="fuel"><i class="icon-car-fuel"></i>{{rs.fuel}}</div>
+                        <div class="type"><i class="icon-car-door"></i></div>
+                    </div> <!-- end .details -->
+                </div> <!-- end .featured-car -->
+            </div> <!-- end .item -->
+            {% endfor %}
+				>
+			</div> <!-- end .inner -->
+		</section> <!-- end .section -->
+

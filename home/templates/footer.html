@@ -1,0 +1,101 @@
+<footer class="footer">
+			<div class="top">
+				<div class="container">
+					<div class="twitter">
+						<div class="icon"><i class="fa fa-twitter"></i><span></span></div>
+						<div id="tweets" class="flexslider"></div>
+					</div> <!-- end .twitter -->
+					<div class="row">
+						<div class="col-sm-4">
+							<h5>About Us</h5>
+							<p>Lorem ipsum dolor sit amet, consectetur  some dymm adipiscing elit. Nam turpis quam, sodales in text she ante sagittis, varius efficitur mauris.</p>
+							<hr />
+							<div class="iconbox-left">
+								<div class="icon"><i class="fa fa-map-marker"></i></div> <!-- end .icon -->
+								<div class="content"><p>3015 Grand Ave, Coconut Grove, Merrick Way, FL 12345</p></div> <!-- end .content -->
+							</div> <!-- end .iconbox-left -->
+							<div class="iconbox-left">
+								<div class="icon"><i class="fa fa-envelope"></i></div> <!-- end .icon -->
+								<div class="content"><p>info@wheels-control.com</p></div> <!-- end .content -->
+							</div> <!-- end .iconbox-left -->
+							<div class="iconbox-left">
+								<div class="icon"><i class="fa fa-phone"></i></div> <!-- end .icon -->
+								<div class="content"><p>123-456-7890</p></div> <!-- end .content -->
+							</div> <!-- end .iconbox-left -->
+						</div> <!-- end .col-sm-4 -->
+						<div class="col-sm-4">
+							<h5>Haberler</h5>
+							<div class="featured-deals">
+								<a href="details.html" class="clearfix">
+									<h5>Renault Yeni Araba Getirmeyeceğini Bildirdi</h5>
+									<span class="price">Yıl : 2021</span>
+								</a>
+								<p>Covid-19 nedeniyle Araç Üretemedik dedi.</p>
+							</div> <!-- end .featured-deals -->
+							<div class="featured-deals">
+								<a href="details.html" class="clearfix">
+									<h5>Fiat Ferrari Üretecek</h5>
+									<span class="price">Yıl : 2050</span>
+								</a>
+								<p>Kayserililer olya et attı.Yaparız dediler...</p>
+							</div> <!-- end .featured-deals -->
+						</div> <!-- end .col-sm-4 -->
+						<div class="col-sm-4">
+							<h5>Bize Ulaşın</h5>
+                            <div>
+                                {% if messages %}
+                                {% for message in messages %}
+                                <div class="alert alert-{{message.tags}}" role="alert">
+                                    {{ message }}
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+							<form action="/car/addcomment/{{car.id}}" method="post">
+                                {% csrf_token %}
+                                <div>
+                                    <div>
+                                        <div class="form-group">
+                                            <input name="subject" type="text" id="comment-name" required placeholder="Konu*" />
+                                        </div> <!-- end .form-group -->
+                                        <div class="form-group">
+                                            <textarea name="comment" id="comment-message" required placeholder="Yorum*" rows="7"></textarea>
+                                        </div> <!-- end .form-group -->
+                                        {% if user.id is not None %}
+                                        <input type="submit" value="Yorum Yap" class="button solid light-blue" />
+                                        {% else %}
+                                        Yorum eklemek için <a href="/login">giriş</a> yapınız.
+                                        {% endif %}
+                                    </div> <!-- end .col-sm-6 -->
+                                </div> <!-- end .row -->
+                            </form>
+						</div> <!-- end .col-sm-4 -->
+					</div> <!-- end .row -->
+				</div> <!-- end .container -->
+			</div> <!-- end .top -->
+			<div class="bottom">
+				<span class="copyright">Copyright 2020. All Rights Reserved by MMG. Designed by Muhammet Mustafa Gül.</span>
+			</div> <!-- end .bottom -->
+		</footer> <!-- end .footer -->
+
+		{% load static %}
+        <script src="{% static 'js/jquery-1.11.2.min.js'%}"></script>
+        <script src="{% static 'js/bootstrap.min.js'%}"></script>
+        <!-- Inview -->
+        <script src="{% static 'js/jquery.inview.min.js'%}"></script>
+        <!-- google maps -->
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+        <!-- Tweetie -->
+        <script src="{% static 'scripts/Tweetie/tweetie.min.js'%}"></script>
+        <!-- FlexSlider -->
+        <script src="{% static 'scripts/FlexSlider/jquery.flexslider-min.js'%}"></script>
+        <!-- Owl Carousel -->
+        <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+        <!-- Isotope -->
+        <script src="{% static 'js/isotope.pkgd.min.js'%}"></script>
+
+        <script src="{% static 'js/imagesloaded.pkgd.min.js'%}"></script>
+        <!-- noUiSlider -->
+        <script src="{% static 'js/jquery.nouislider.all.min.js'%}"></script>
+        <!-- Scripts.js -->
+        <script src="{% static 'js/scripts.js'%}"></script>

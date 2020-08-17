@@ -1,0 +1,87 @@
+{% extends 'homebase.html' %}
+{% block title %} İletişim - {{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %}
+<link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+{% block content %}
+    {% load static %}
+<div class="responsive-menu">
+    <a href="" class="responsive-menu-close"><i class="ion-android-close"></i></a>
+    <nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
+</div> <!-- end .responsive-menu -->
+
+<div class="page-title" style="background-image: url({% static 'images/background01.jpg' %} );">
+    <div class="inner">
+        <div class="container">
+            <div class="title">İLETİŞİM</div> <!-- end .title -->
+        </div> <!-- end .container -->
+    </div> <!-- end .inner -->
+</div> <!-- end .page-title -->
+
+<div id="map" class="map"></div>
+<section class="section white">
+    <div class="inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="contact">
+                        <h4>İletişim Formu</h4>
+
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p}}
+                            <div class="form-group">
+                                <button type="submit" class="button light-blue">Gönder</button>
+                            </div>
+                        </form>
+                        {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{message.tags}}" role="alert">
+                        <span id="alert">{{ message }}</span>
+                    </div>
+                {% endfor %}
+            {% endif %}
+                    </div> <!-- end .contact -->
+                </div> <!-- end .col-sm-8 -->
+                <div class="col-sm-4">
+                    <div class="contact-details">
+                        <!--<div class="item">
+                            <div class="icon"><i class="ion-ios-location-outline"></i></div>
+                            <div class="content">
+                                <h6>İletişim Bilgilerimiz</h6>
+                                <span>{{ setting.contact | safe }}</span>
+                            </div>
+                        </div> end item-->
+                        <div class="item">
+                            <div class="icon"><i class="ion-ios-location-outline"></i></div>
+                            <div class="content">
+                                <h6>Adres</h6>
+                                <span>{{ setting.address }}</span>
+                            </div> <!-- end .content -->
+                        </div> <!-- end .item -->
+                        <div class="item">
+                            <div class="icon"><i class="ion-ios-telephone-outline"></i></div>
+                            <div class="content">
+                                <h6>Telefon ve Fax</h6>
+                                <span>Telefon: {{ setting.phone }}</span>
+                                <span>Fax: {{ setting.fax }}</span>
+                            </div> <!-- end .content -->
+                        </div> <!-- end .item -->
+                        <div class="item">
+                            <div class="icon"><i class="ion-ios-email-outline"></i></div>
+                            <div class="content">
+                                <h6>Email</h6>
+                                <span>{{ setting.email }}</span>
+                                <span></span>
+                            </div> <!-- end .content -->
+                        </div> <!-- end .item -->
+                    </div> <!-- end .contact-details -->
+                </div> <!-- end .col-sm-4 -->
+            </div> <!-- end .row -->
+        </div> <!-- end .container -->
+    </div> <!-- end .inner -->
+</section> <!-- end .section -->
+{% endblock %}
