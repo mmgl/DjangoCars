@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25f0906c-de11-4992-a82c-f0fb3437d61a" name="Default Changelist" comment="üye paneli problemini çözdüm gibi">
+    <list default="true" id="25f0906c-de11-4992-a82c-f0fb3437d61a" name="Default Changelist" comment="problem devam ediyor.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/iletisim.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/iletisim.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sidebar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/templates/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1595171122810</updated>
       <workItem from="1595171126058" duration="214000" />
-      <workItem from="1597733955201" duration="6432000" />
+      <workItem from="1597733955201" duration="7199000" />
     </task>
     <task id="LOCAL-00001" summary="Django Kuruldu">
       <created>1597699605071</created>
@@ -138,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597740962377</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="problem devam ediyor.">
+      <created>1597742774190</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1597742774190</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +167,8 @@
     <MESSAGE value="proje Uyandırıldı" />
     <MESSAGE value="üye paneli hata alıyorum tekrar app oluşturup deneyeceğim" />
     <MESSAGE value="üye paneli problemini çözdüm gibi" />
-    <option name="LAST_COMMIT_MESSAGE" value="üye paneli problemini çözdüm gibi" />
+    <MESSAGE value="problem devam ediyor." />
+    <option name="LAST_COMMIT_MESSAGE" value="problem devam ediyor." />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="117" key="FileChooserDialogImpl" timestamp="1597740893256">
@@ -173,10 +179,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597740726385" />
-    <state x="275" y="95" key="Vcs.Push.Dialog.v2" timestamp="1597740963919">
+    <state x="275" y="95" key="Vcs.Push.Dialog.v2" timestamp="1597742775478">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="95" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1597740963919" />
+    <state x="275" y="95" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1597742775478" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1597735435798">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
