@@ -9,7 +9,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 from car.models import Category, Car, Images, Comment
 from home.forms import SearchForm, SignUpForm
-from home.models import Setting, ContactFormu, ContactFormMessage
+from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile
 
 
 def index(request):
@@ -168,6 +168,10 @@ def signup_view(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             current_user = request.user
+            data = UserProfile()
+            data.user_id = current_user.id
+            data.image = "images/users/avatar01.png"
+            data.save()
             messages.success(request, "Üye Kaydı Alınmıştır")
             return HttpResponseRedirect('/')
     form = SignUpForm()
