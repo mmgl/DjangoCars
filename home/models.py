@@ -89,6 +89,8 @@ class UserProfile(models.Model):
 
         image_tag.short_description = 'Image'
 
+
+
 class UserProfileForm(ModelForm):
         class Meta:
             model = UserProfile

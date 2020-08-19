@@ -158,6 +158,7 @@ def login_view(request):
                'setting' : setting}
     return render(request, 'login.html', context)
 
+
 def signup_view(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -165,7 +166,7 @@ def signup_view(request):
             form.save()
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
+            user = authenticate(request,username=username, password=password)
             login(request, user)
             current_user = request.user
             data = UserProfile()
@@ -179,3 +180,6 @@ def signup_view(request):
     context = {'category': category,
                'form': form}
     return render(request, 'signup.html', context)
+
+
+

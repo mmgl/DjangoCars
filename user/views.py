@@ -1,4 +1,5 @@
-from django.conf import Settings
+
+
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
@@ -9,21 +10,28 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 
 from car.models import Category, Comment, Car
-from home.models import UserProfile, Setting
+from home.models import Setting, UserProfile
 from user.forms import UserUpdateForm, ProfileUpdateForm
 from user.models import CarForm
+
+
 
 
 @login_required(login_url='/login')
 def index(request):
     category = Category.objects.all()
+    setting = Setting.objects.get(pk=1)
     current_user = request.user
     profile = UserProfile.objects.get(user_id=current_user.id)
     context = {'category': category,
-               'profile': profile
+               'profile': profile,
+               'setting': setting
                }
     return render(request, 'user_profile.html', context)
 
+
+
+@login_required(login_url='/login')
 def user_update(request):
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
@@ -69,10 +77,9 @@ def change_password(request):
 
 @login_required(login_url='/login')
 def comments(request):
+    category = Category.objects.all()
     current_user = request.user
     comments = Comment.objects.filter(user_id=current_user.id)
-
-    category = Category.objects.all()
     context = {'comments': comments,
                'category': category,
                }
