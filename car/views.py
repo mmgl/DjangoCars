@@ -22,7 +22,6 @@ def addcomment(request, id):
         form = CommentForm(request.POST)
         if form.is_valid():
             current_user = request.user
-
             data = Comment()
             data.user_id = current_user.id
             data.car_id = id

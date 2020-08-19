@@ -9,10 +9,10 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
 
-from car.models import Category, Comment, Car
+from car.models import Category, Comment, Car, ContentForm
 from home.models import Setting, UserProfile
 from user.forms import UserUpdateForm, ProfileUpdateForm
-from user.models import CarForm
+
 
 
 
@@ -97,7 +97,7 @@ def delete_comment(request, id):
 @login_required(login_url='/login')
 def addcontent(request):
     if request.method == 'POST':
-        form = CarForm(request.POST, request.FILES)
+        form = ContentForm(request.POST, request.FILES)
         if form.is_valid():
             current_user = request.user
             data = Car()
@@ -126,7 +126,7 @@ def addcontent(request):
     else:
         category = Category.objects.all()
         setting = Setting.objects.get(pk=1)
-        form = CarForm()
+        form = ContentForm()
         context = {'setting': setting,
                    'category': category,
                    'form': form
@@ -137,18 +137,22 @@ def addcontent(request):
 def contents(request):
     category = Category.objects.all()
     current_user = request.user
+    contents=Car.objects.filter(user_id=current_user.id)
     profile = UserProfile.objects.get(user_id=current_user.id)
     context = {'category': category,
                'profile': profile,
+               'contents':contents,
+
+
                }
     return render(request, 'user_contents.html', context)
 
 
-@login_required(login_url='/login') #check login
+@login_required(login_url='/login')
 def contentedit(request,id):
-    content = Category.objects.get(id=id) #category geliyor
+    content = Category.objects.get(id=id)
     if request.method == 'POST':
-        form = CarForm(request.POST, request.FILES, instance =content)
+        form = ContentForm(request.POST, request.FILES, instance =content)
         if form.is_valid():
             form.save()
             messages.success(request,'Your Content Updated Successfuly')
@@ -158,7 +162,7 @@ def contentedit(request,id):
             return HttpResponseRedirect('/user/contentedit/' +str(id))
     else:
         category = Category.objects.all()
-        form = CarForm(instance=content)
+        form = ContentForm(instance=content)
         context = {
             'category': category,
             'form': form,
