@@ -72,6 +72,7 @@ class ContactFormu(ModelForm):
 
 class UserProfile(models.Model):
         user = models.OneToOneField(User, on_delete=models.CASCADE)
+        name = models.CharField(blank=True, max_length=20)
         phone = models.CharField(blank=True, max_length=15)
         address = models.CharField(blank=True, max_length=100)
         city = models.CharField(blank=True, max_length=50)
@@ -82,6 +83,9 @@ class UserProfile(models.Model):
             return self.user.username
 
         def user_name(self):
+            return self.user.username
+
+        def full_name(self):
             return self.user.first_name + ' ' + self.user.last_name + ' [ ' + self.user.username + ' ] '
 
         def image_tag(self):

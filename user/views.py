@@ -144,3 +144,31 @@ def contents(request):
     return render(request, 'user_contents.html', context)
 
 
+@login_required(login_url='/login') #check login
+def contentedit(request,id):
+    content = Category.objects.get(id=id) #category geliyor
+    if request.method == 'POST':
+        form = CarForm(request.POST, request.FILES, instance =content)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Your Content Updated Successfuly')
+            return HttpResponseRedirect('/user/')
+        else:
+            messages.success(request, 'Content Form Error :' + str(form.errors))
+            return HttpResponseRedirect('/user/contentedit/' +str(id))
+    else:
+        category = Category.objects.all()
+        form = CarForm(instance=content)
+        context = {
+            'category': category,
+            'form': form,
+        }
+        return render(request,'user_addcontent.html',context)
+
+
+@login_required(login_url='/login') #check login
+def contentdelete(request,id):
+    current_user = request.user
+    Car.objects.filter(id=id, user_id = current_user.id).delete() #product silme
+    messages.success(request, 'Product deleted..')
+    return HttpResponseRedirect('/user/')
