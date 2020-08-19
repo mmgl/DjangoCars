@@ -15,13 +15,13 @@ class Category(MPTTModel):
         ('True', 'Evet'),
         ('False', 'Hayır'),
     )
+    parent = TreeForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
     keywords = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
     image = models.ImageField(blank=True, upload_to='images/')
     status = models.CharField(max_length=10, choices=STATUS)
     slug = models.SlugField(null=False, unique=True)
-    parent = TreeForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     create_up = models.DateTimeField(auto_now_add=True)
     update_up = models.DateTimeField(auto_now=True)
 

@@ -33,7 +33,7 @@
                     <div class="col-sm-9">
                         <h5 class="text-uppercase"><strong>İÇERİK BİLGİLERİ</strong></h5><br><br>
                         <div class="option">
-                                    <p class="button-list"><a href="/user/add_content" class="button border dark size1">İlan İçerik Gir</a></p>
+                                    <p class="button-list"><a href="/user/addcontent" class="button border dark size1">İlan İçerik Gir</a></p>
 
                             </div> <!-- end .item -->
                         <table  style="text-align:center;">
@@ -46,10 +46,12 @@
                             </tr>
                             {% for rs in contents %}
                             <tr>
-                                <td><img src="{{rs.image.url}}" alt="" width="300"></td>
-                                <td> {{rs.title}}</td>
-                                <td>{{rs.type}}</td>
-                                <td>{{rs.create_at}}</td>
+                                <td class="text-left"><img src="{{rs.image.url}}" alt="" width="300"></td>
+                                <td class="text-left"> {{rs.title}}</td>
+                                <td class="text-left">{{rs.type}}</td>
+                                <td class="text-left">{{rs.create_at}}</td>
+                                <td><a href="/user/contentedit/{{rs.id}}">Düzenle</a><br>
+                                <a href="/user/contentdelete/{{rs.id}}" onclick="return confirm('İçeriği silmek istediğinize emin misiniz?')">SİL</a>
                                 </td>
                             </tr>
                             {% endfor %}

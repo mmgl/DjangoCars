@@ -95,14 +95,14 @@ def delete_comment(request, id):
     return HttpResponseRedirect('/user/comments')
 
 @login_required(login_url='/login')
-def add_content(request):
+def addcontent(request):
     if request.method == 'POST':
         form = CarForm(request.POST, request.FILES)
         if form.is_valid():
             current_user = request.user
-            catid = form.cleaned_data['category']
             data = Car()
-            data.category_id = catid.id
+            data.user_id = current_user.id
+            data.category = form.cleaned_data['category']
             data.title = form.cleaned_data['title']
             data.keywords = form.cleaned_data['keywords']
             data.description = form.cleaned_data['description']
@@ -116,14 +116,13 @@ def add_content(request):
             data.color = form.cleaned_data['color']
             data.detail = form.cleaned_data['detail']
             data.slug = form.cleaned_data['slug']
-            data.status = 'New'
-            data.user_id = current_user.id
+            data.status = 'False'
             data.save()
-            messages.success(request, "Photo successfully added.")
-            return HttpResponseRedirect('/user')
+            messages.success(request, "İçerik Eklendi.")
+            return HttpResponseRedirect('/user/contents')
         else:
-            messages.warning(request, "Please correct the errors: " + str(form.errors))
-            return HttpResponseRedirect('/user/add_content')
+            messages.success(request, "Form hatası: " + str(form.errors))
+            return HttpResponseRedirect('/user/addcontent')
     else:
         category = Category.objects.all()
         setting = Setting.objects.get(pk=1)
@@ -132,8 +131,16 @@ def add_content(request):
                    'category': category,
                    'form': form
                    }
-        return render(request, 'add_content.html', context)
+        return render(request, 'user_addcontent.html', context)
 
-
+@login_required(login_url='/login')
+def contents(request):
+    category = Category.objects.all()
+    current_user = request.user
+    profile = UserProfile.objects.get(user_id=current_user.id)
+    context = {'category': category,
+               'profile': profile,
+               }
+    return render(request, 'user_contents.html', context)
 
 

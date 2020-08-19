@@ -8,7 +8,10 @@ urlpatterns = [
     path('update/', views.user_update, name='user_update'),
     path('comments/', views.comments, name='user_comments'),
     path('delete_comment/<int:id>', views.delete_comment, name="delete_comment"),
-    path('add_content/', views.add_content, name='add_content'),
-    #path('user_contents/', views.user_contents, name='user_contents'),
+
+    path('addcontent/', views.addcontent, name='addcontent'),
+    path('contents/', views.contents, name='contents'),
+    path('contentedit/<int:id>', views.contents, name='contents'),
+    path('contentsdelete/<int:id>', views.contents, name='contents'),
 
 ]
