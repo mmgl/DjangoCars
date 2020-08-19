@@ -2,7 +2,7 @@ from django.conf import Settings
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
-from django.core.checks import messages
+from django.contrib import messages
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -71,12 +71,13 @@ def change_password(request):
 def comments(request):
     current_user = request.user
     comments = Comment.objects.filter(user_id=current_user.id)
-    profile = UserProfile.objects.get(user_id=current_user.id)
+
     category = Category.objects.all()
     context = {'comments': comments,
                'category': category,
-               'profile': profile}
+               }
     return render(request, 'user_comments.html', context)
+
 
 
 @login_required(login_url='/login')
@@ -125,3 +126,7 @@ def add_content(request):
                    'form': form
                    }
         return render(request, 'add_content.html', context)
+
+
+
+

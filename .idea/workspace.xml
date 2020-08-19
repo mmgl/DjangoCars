@@ -20,13 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25f0906c-de11-4992-a82c-f0fb3437d61a" name="Default Changelist" comment="üye bilgileri eklendi">
-      <change afterPath="$PROJECT_DIR$/home/templates/content_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/add_content.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_comments.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_contents.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/templates/user_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_panel.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
@@ -112,7 +108,7 @@
       <workItem from="1595171126058" duration="214000" />
       <workItem from="1597733955201" duration="7329000" />
       <workItem from="1597776945897" duration="5013000" />
-      <workItem from="1597800388276" duration="17868000" />
+      <workItem from="1597800388276" duration="22764000" />
     </task>
     <task id="LOCAL-00001" summary="Django Kuruldu">
       <created>1597699605071</created>
@@ -170,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597783561188</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="üye ilan ekleme işlemi devam ediyor">
+      <created>1597823726693</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1597823726693</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,9 +200,14 @@
     <MESSAGE value="problem devam ediyor." />
     <MESSAGE value="problem çözdüm&#10;sorgu mevcut değil diyordu get ederken user_id degil direk pk yı get etmeye çalışıyormuş." />
     <MESSAGE value="üye bilgileri eklendi" />
-    <option name="LAST_COMMIT_MESSAGE" value="üye bilgileri eklendi" />
+    <MESSAGE value="üye ilan ekleme işlemi devam ediyor" />
+    <option name="LAST_COMMIT_MESSAGE" value="üye ilan ekleme işlemi devam ediyor" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="568" y="225" key="#Notifications" timestamp="1597826376186">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="568" y="225" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1597826376186" />
     <state x="463" y="117" key="FileChooserDialogImpl" timestamp="1597821992427">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -216,9 +224,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1597735435798" />
-    <state x="492" y="276" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597740794325">
+    <state x="492" y="276" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597826387844">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="492" y="276" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1597740794325" />
+    <state x="492" y="276" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1597826387844" />
   </component>
 </project>
