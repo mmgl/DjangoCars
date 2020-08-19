@@ -8,9 +8,11 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
 
-from car.models import Category
-from home.models import UserProfile
+from car.models import Category, Comment, Car
+from home.models import UserProfile, Setting
 from user.forms import UserUpdateForm, ProfileUpdateForm
+from user.models import CarForm
+
 
 @login_required(login_url='/login')
 def index(request):
@@ -62,4 +64,64 @@ def change_password(request):
         form = PasswordChangeForm(request.user)
         return render(request, 'change_password.html', {
             'form': form,
-            'category': category,})
+            'category': category})
+
+
+@login_required(login_url='/login')
+def comments(request):
+    current_user = request.user
+    comments = Comment.objects.filter(user_id=current_user.id)
+    profile = UserProfile.objects.get(user_id=current_user.id)
+    category = Category.objects.all()
+    context = {'comments': comments,
+               'category': category,
+               'profile': profile}
+    return render(request, 'user_comments.html', context)
+
+
+@login_required(login_url='/login')
+def delete_comment(request, id):
+    current_user = request.user
+    Comment.objects.filter(id=id, user_id=current_user.id).delete()
+    messages.success(request, 'Yorumunuz silinmiştir.')
+    return HttpResponseRedirect('/user/comments')
+
+@login_required(login_url='/login')
+def add_content(request):
+    if request.method == 'POST':
+        form = CarForm(request.POST, request.FILES)
+        if form.is_valid():
+            current_user = request.user
+            catid = form.cleaned_data['category']
+            data = Car()
+            data.category_id = catid.id
+            data.title = form.cleaned_data['title']
+            data.keywords = form.cleaned_data['keywords']
+            data.description = form.cleaned_data['description']
+            data.image = form.cleaned_data['image']
+            data.price = form.cleaned_data['price']
+            data.year = form.cleaned_data['year']
+            data.fuel = form.cleaned_data['fuel']
+            data.gear = form.cleaned_data['gear']
+            data.km = form.cleaned_data['km']
+            data.motor = form.cleaned_data['motor']
+            data.color = form.cleaned_data['color']
+            data.detail = form.cleaned_data['detail']
+            data.slug = form.cleaned_data['slug']
+            data.status = 'New'
+            data.user_id = current_user.id
+            data.save()
+            messages.success(request, "Photo successfully added.")
+            return HttpResponseRedirect('/user')
+        else:
+            messages.warning(request, "Please correct the errors: " + str(form.errors))
+            return HttpResponseRedirect('/user/add_content')
+    else:
+        category = Category.objects.all()
+        setting = Setting.objects.get(pk=1)
+        form = CarForm()
+        context = {'setting': setting,
+                   'category': category,
+                   'form': form
+                   }
+        return render(request, 'add_content.html', context)

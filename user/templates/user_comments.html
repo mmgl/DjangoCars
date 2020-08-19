@@ -1,0 +1,61 @@
+{% extends 'homebase.html' %}
+{% block title %}Kullanıcı Yorumları{{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %}
+<link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="page-title" style="background-image: url({% static 'images/background01.jpg' %} );">
+    <div class="inner">
+        <div class="container">
+            <div class="title">Kullanıcı Yorumları</div> <!-- end .title -->
+        </div> <!-- end .container -->
+    </div> <!-- end .inner -->
+</div> <!-- end .page-title -->
+<header>
+    <section class="section white">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="contact-details">
+                            <div class="item">
+                                <div class="content">
+                                    {% include "user_panel.html" %}
+                                </div> <!-- end .content -->
+                            </div> <!-- end .item -->
+                        </div> <!-- end .contact-details -->
+                    </div> <!-- end .col-sm-4 -->
+
+                    <div class="col-sm-9">
+                        <div class="general-comparison clearfix">
+                            <h5 class="text-uppercase"><strong>Yorum Bilgileriniz</strong></h5><br>
+                            <table  tyle="text-align:center;">
+                                <tr style="border-bottom-style: solid">
+                                    <td width="150" height="45"><strong>Araba</strong></td>
+                                    <td width="150" height="45"><strong>Konu</strong></td>
+                                    <td width="350"height="45"><strong>Yorum</strong></td>
+                                    <td width="200"height="45"><strong>Tarih</strong></td>
+                                    <td width="70"height="45"><strong>Detay</strong></td>
+                                </tr>
+                                {% for rs in comments %}
+                                <tr >
+                                    <td width="150" height="45"><a href="/car/{{rs.car_id}}/{{rs.car.slug}}">{{rs.car.title}}</a></td>
+                                    <td width="150" height="45"> {{rs.subject}}</td>
+                                    <td width="350" height="45">{{rs.comment}}</td>
+                                    <td width="200" height="45">{{rs.create_at}}</td>
+                                    <td width="70" height="45"><a href="/user/delete_comment/{{rs.id}}" class="button solid blue small size1" onclick="return confirm('Yorumu silmek istediğinize emin misiniz?')">SİL</a></td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+{% endblock %}
