@@ -46,9 +46,9 @@
                             </tr>
                             {% for rs in contents %}
                             <tr>
-                                <td class="text-left"><img src="{{rs.image.url}}" alt="" width="300"></td>
+                                <td class="text-left" height="105"><img src="{{rs.image.url}}" alt="" width="100" height="100"></td>
                                 <td class="text-left"> {{rs.title}}</td>
-                                <td class="text-left">{{rs.type}}</td>
+                                <td class="text-left">{{rs.status}}</td>
                                 <td class="text-left">{{rs.create_at}}</td>
                                 <td><a href="/user/contentedit/{{rs.id}}">Düzenle</a><br>
                                 <a href="/user/contentdelete/{{rs.id}}" onclick="return confirm('İçeriği silmek istediğinize emin misiniz?')">SİL</a>

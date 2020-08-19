@@ -136,7 +136,7 @@ class ContentForm(ModelForm):
             'price': NumberInput(attrs={'class': 'input', 'placeholder': 'Fiyat'}),
             'year': NumberInput(attrs={'class': 'input', 'placeholder': 'Yıl'}),
             'fuel': TextInput(attrs={'class': 'input', 'placeholder': 'Yakıt'}),
-            'gear':TextInput(attrs={'class': 'finput', 'placeholder': 'Vites'}),
+            'gear':TextInput(attrs={'class': 'input', 'placeholder': 'Vites'}),
             'km':NumberInput(attrs={'class': 'input', 'placeholder': 'Kilometre'}),
             'motor':NumberInput(attrs={'class': 'input', 'placeholder': 'Motor Gücü'}),
             'color': TextInput(attrs={'class': 'input', 'placeholder': 'Renk'}),
