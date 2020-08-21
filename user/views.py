@@ -137,7 +137,7 @@ def addcontent(request):
 def contents(request):
     category = Category.objects.all()
     current_user = request.user
-    contents = Car.objects.filter(user_id=current_user.id)
+    contents = Car.objects.filter(user_id=current_user.id).order_by('-id')
     profile = UserProfile.objects.get(user_id=current_user.id)
     context = {'category': category,
                'profile': profile,
@@ -148,13 +148,13 @@ def contents(request):
 
 @login_required(login_url='/login')
 def contentedit(request,id):
-    content = Category.objects.get(id=id) #category geliyor
+    content = Car.objects.get(id=id)
     if request.method == 'POST':
         form = ContentForm(request.POST, request.FILES, instance =content)
         if form.is_valid():
             form.save()
             messages.success(request,'İçerik Güncellendi')
-            return HttpResponseRedirect('/user/')
+            return HttpResponseRedirect('/user/contents')
         else:
             messages.success(request, 'Form Yanlışlıklar VAr :' + str(form.errors))
             return HttpResponseRedirect('/user/contentedit/' +str(id))

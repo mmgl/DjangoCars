@@ -59,5 +59,12 @@
 					</nav> <!-- end .main-nav -->
 					<a href="" class="responsive-menu-open"><i class="fa fa-bars"></i></a>
 				</div> <!-- end .navigation -->
-			</div> <!-- end .container -->
+			</div>
+    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{message.tags}}" role="alert">
+                        <span id="alert">{{ message }}</span>
+                    </div>
+                {% endfor %}
+            {% endif %}<!-- end .container -->
 		</header> <!-- end .header -->

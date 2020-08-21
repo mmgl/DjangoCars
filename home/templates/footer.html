@@ -55,10 +55,10 @@
                                             <input name="subject" type="text" id="comment-name" required placeholder="Konu*" />
                                         </div> <!-- end .form-group -->
                                         <div class="form-group">
-                                            <textarea name="comment" id="comment-message" required placeholder="Yorum*" rows="7"></textarea>
+                                            <textarea name="comment" id="comment-message" required placeholder="Mesaj*" rows="7"></textarea>
                                         </div> <!-- end .form-group -->
                                         {% if user.id is not None %}
-                                        <input type="submit" value="Yorum Yap" class="button solid light-blue" />
+                                        <input type="submit" value="Gönder" class="button solid light-blue" />
                                         {% else %}
                                         Yorum eklemek için <a href="/login">giriş</a> yapınız.
                                         {% endif %}

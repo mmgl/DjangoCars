@@ -40,8 +40,9 @@
                             <tr tyle="text-align:center;">
                                 <td width="150"><strong>Resim</strong></td>
                                 <td width="150"><strong>Başlık</strong></td>
-                                <td width="150"><strong>Type</strong></td>
+                                <td width="150"><strong>Onay</strong></td>
                                 <td width="200"><strong>Tarih</strong></td>
+                                <td width="200"><strong>Fiyat</strong></td>
                                 <td width="150"><strong>Detay</strong></td>
                             </tr>
                             {% for rs in contents %}
@@ -50,8 +51,9 @@
                                 <td class="text-left"> {{rs.title}}</td>
                                 <td class="text-left">{{rs.status}}</td>
                                 <td class="text-left">{{rs.create_at}}</td>
+                                <td class="text-left">{{rs.price}}</td>
                                 <td><a href="/user/contentedit/{{rs.id}}">Düzenle</a><br>
-                                <a href="/user/contentdelete/{{rs.id}}" onclick="return confirm('İçeriği silmek istediğinize emin misiniz?')">SİL</a>
+                                <a href="/user/contentsdelete/{{rs.id}}" onclick="return confirm('İçeriği silmek istediğinize emin misiniz?')">SİL</a>
                                 </td>
                             </tr>
                             {% endfor %}
