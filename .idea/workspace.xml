@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25f0906c-de11-4992-a82c-f0fb3437d61a" name="Default Changelist" comment="üye ilan ekleme sorunlar devam ediyor üye save yapamıyor">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/iletisim.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/iletisim.html" afterDir="false" />
-    </list>
+    <list default="true" id="25f0906c-de11-4992-a82c-f0fb3437d61a" name="Default Changelist" comment="üye ilan ekleme sorunlar devam ediyor üye save yapamıyor" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +108,7 @@
       <workItem from="1597844695547" duration="4786000" />
       <workItem from="1597861839615" duration="18691000" />
       <workItem from="1597977167119" duration="3476000" />
-      <workItem from="1598016071890" duration="3193000" />
+      <workItem from="1598016071890" duration="3244000" />
     </task>
     <task id="LOCAL-00001" summary="Django Kuruldu">
       <created>1597699605071</created>
@@ -234,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598021646838</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="iletişim harita konumlandırıldı">
+      <created>1598023517876</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1598023517876</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +269,8 @@
     <MESSAGE value="üye ilan içerik güncelleme" />
     <MESSAGE value="üye ilan düzenlerken keywords hatası alıyorum" />
     <MESSAGE value="ilan düzenleme ile alaklı hata alıyorum" />
-    <option name="LAST_COMMIT_MESSAGE" value="ilan düzenleme ile alaklı hata alıyorum" />
+    <MESSAGE value="iletişim harita konumlandırıldı" />
+    <option name="LAST_COMMIT_MESSAGE" value="iletişim harita konumlandırıldı" />
   </component>
   <component name="WindowStateProjectService">
     <state x="568" y="225" key="#Notifications" timestamp="1597826376186">
