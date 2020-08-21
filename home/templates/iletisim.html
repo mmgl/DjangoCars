@@ -21,7 +21,6 @@
     </div> <!-- end .inner -->
 </div> <!-- end .page-title -->
 
-<div id="map" class="map"></div>
 <section class="section white">
     <div class="inner">
         <div class="container">
@@ -54,7 +53,7 @@
                                 <h6>Telefon ve Fax</h6>
                                 <span>Telefon: {{ setting.phone }}</span>
                                 <span>Fax: {{ setting.fax }}</span>
-                            </div> <!-- end .content -->
+                            </div><!-- end .content -->
                         </div> <!-- end .item -->
                         <div class="item">
                             <div class="icon"><i class="ion-ios-email-outline"></i></div>
@@ -63,7 +62,9 @@
                                 <span>{{ setting.email }}</span>
                                 <span></span>
                             </div> <!-- end .content -->
-                        </div> <!-- end .item -->
+                        </div>
+                        <br>
+                        <div id="map" class="map" style="height: 400px;width: auto"></div><!-- end .item -->
                     </div> <!-- end .contact-details -->
                 </div> <!-- end .col-sm-4 -->
             </div> <!-- end .row -->
