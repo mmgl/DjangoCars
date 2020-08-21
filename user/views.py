@@ -148,7 +148,7 @@ def contents(request):
 
 @login_required(login_url='/login')
 def contentedit(request,id):
-    content = Car.objects.get(id=id)
+    content = Car.objects.get(pk=id)
     if request.method == 'POST':
         form = ContentForm(request.POST, request.FILES, instance =content)
         if form.is_valid():

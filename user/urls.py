@@ -11,7 +11,7 @@ urlpatterns = [
 
     path('addcontent/', views.addcontent, name='addcontent'),
     path('contents/', views.contents, name='contents'),
-    path('contentedit/<int:id>', views.contents, name='contents'),
-    path('contentsdelete/<int:id>', views.contents, name='contents'),
+    path('contentedit/<int:id>', views.contentedit, name='contentedit'),
+    path('contentsdelete/<int:id>', views.contentdelete, name='contentdelete'),
 
 ]

@@ -125,7 +125,7 @@ class ContentForm(ModelForm):
     class Meta:
         model = Car
         fields = {'category','title','keywords','description','slug','image','price','year',
-                  'fuel','gear', 'km','motor','color','detail'}
+                  'fuel','gear','km','motor','color','detail'}
         widgets = {
             'title': TextInput(attrs={'class': 'input', 'placeholder': 'Başlık'}),
             'category': Select(attrs={'class': 'input', 'placeholder': ''}, choices=Category.objects.all()),
