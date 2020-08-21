@@ -132,7 +132,7 @@ class ContentForm(ModelForm):
             'slug': TextInput(attrs={'class': 'input', 'placeholder': 'Slug'}),
             'keywords': TextInput(attrs={'class': 'input', 'placeholder': 'Keywords'}),
             'description': TextInput(attrs={'class': 'input', 'placeholder': 'Description'}),
-            'image': FileInput(attrs={'class': 'input', 'placeholder': 'Image'}),
+            'image': FileInput(attrs={'class': 'input', 'placeholder': 'Resim'}),
             'price': NumberInput(attrs={'class': 'input', 'placeholder': 'Fiyat'}),
             'year': NumberInput(attrs={'class': 'input', 'placeholder': 'Yıl'}),
             'fuel': TextInput(attrs={'class': 'input', 'placeholder': 'Yakıt'}),
