@@ -4,6 +4,13 @@
 {% block description %} {{ setting.description }} {% endblock %}
 {% block head %}
 <link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{message.tags}}" role="alert">
+                        <span id="alert">{{ message }}</span>
+                    </div>
+                {% endfor %}
+            {% endif %}<!-- end .container -->
 {% endblock %}
 
 {% block content %}

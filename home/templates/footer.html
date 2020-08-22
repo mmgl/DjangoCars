@@ -38,15 +38,6 @@
 						</div> <!-- end .col-sm-4 -->
 						<div class="col-sm-4">
 							<h5>Bize Ulaşın</h5>
-                            <div>
-                                {% if messages %}
-                                {% for message in messages %}
-                                <div class="alert alert-{{message.tags}}" role="alert">
-                                    {{ message }}
-                                </div>
-                                {% endfor %}
-                                {% endif %}
-                            </div>
 							<form action="/car/addcomment/{{car.id}}" method="post">
                                 {% csrf_token %}
                                 <div>

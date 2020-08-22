@@ -14,7 +14,7 @@ from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile
 
 def index(request):
     setting = Setting.objects.get(pk=1)
-    sliderdata = Car.objects.all()[:5]
+    sliderdata = Car.objects.all()[:5] #slider a 5 adet ürün getirdik
     category = Category.objects.all()
     daycars = Car.objects.all()[:5]
     lastcars = Car.objects.all().order_by('-id')[:5]
