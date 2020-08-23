@@ -116,15 +116,7 @@
                     <div class="col-sm-4">
                         <div class="leave-reply">
                             <h4>Yorum yazın</h4>
-                            <div>
-                                {% if messages %}
-                                {% for message in messages %}
-                                <div class="alert alert-{{message.tags}}" role="alert">
-                                    {{ message }}
-                                </div>
-                                {% endfor %}
-                                {% endif %}
-                            </div>
+
                         <form action="/car/addcomment/{{car.id}}" method="post">
                                 {% csrf_token %}
                                 <div>

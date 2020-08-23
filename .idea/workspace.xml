@@ -21,14 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="25f0906c-de11-4992-a82c-f0fb3437d61a" name="Default Changelist" comment="üye ilan ekleme sorunlar devam ediyor üye save yapamıyor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/homebase.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/homebase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/templates/user_contents.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_contents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/car_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/car_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +116,9 @@
       <workItem from="1598036454433" duration="1243000" />
       <workItem from="1598071409551" duration="2028000" />
       <workItem from="1598073703979" duration="782000" />
-      <workItem from="1598118696058" duration="2721000" />
+      <workItem from="1598118696058" duration="4792000" />
+      <workItem from="1598170003490" duration="142000" />
+      <workItem from="1598219471193" duration="1051000" />
     </task>
     <task id="LOCAL-00001" summary="Django Kuruldu">
       <created>1597699605071</created>
@@ -257,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598023551772</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="bir kaç düzenleme yapıldı">
+      <created>1598124630678</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1598124630678</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,7 +294,8 @@
     <MESSAGE value="üye ilan düzenlerken keywords hatası alıyorum" />
     <MESSAGE value="ilan düzenleme ile alaklı hata alıyorum" />
     <MESSAGE value="iletişim harita konumlandırıldı" />
-    <option name="LAST_COMMIT_MESSAGE" value="iletişim harita konumlandırıldı" />
+    <MESSAGE value="bir kaç düzenleme yapıldı" />
+    <option name="LAST_COMMIT_MESSAGE" value="bir kaç düzenleme yapıldı" />
   </component>
   <component name="WindowStateProjectService">
     <state x="568" y="225" key="#Notifications" timestamp="1597826376186">
@@ -306,10 +310,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597740726385" />
-    <state x="275" y="95" key="Vcs.Push.Dialog.v2" timestamp="1598023553503">
+    <state x="275" y="95" key="Vcs.Push.Dialog.v2" timestamp="1598124632548">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="95" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1598023553503" />
+    <state x="275" y="95" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1598124632548" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1597735435798">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
